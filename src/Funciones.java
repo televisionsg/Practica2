@@ -1,9 +1,35 @@
+/** 
+ * Copyright [2021] [Sebastian Gines]
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing,
+software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+See the License for the specific language governing permissions
+and
+limitations under the License.
+*/
+
+/**
+ * Clase funciones que contiene los metodos necesarios para desarollar el juego de la vida.
+ * 
+ * @author Sebastian Gines
+ * @version segunda práctica
+ */
+
 public class Funciones {
     
+    /**
+     *metodo que genera un numero aleatorio
+     * 
+     * @return un numero aleatorio que puede ser 1 o 0
+     */
     
-    public Funciones() {}
-    
-     //Metodo que genera un numero aleatorio
+     
     public static int generarAleatorio(){
         if (Math.random() > 0.5) {
             return 1;
@@ -15,7 +41,15 @@ public class Funciones {
         
     }
 
-    //Metodo que genera la matriz original
+    /**
+     *Metodo que genera la matriz original
+     * 
+     * @param  M  numero de filas
+     * @param  N  numero de columnas
+     * @return  La matriz que se genera rellenada de numeros aleatorios
+     */
+
+    
     static int[][] generarMatriz(int M, int N) {
         
         int [][] matrizNueva = new int [M][N];
@@ -33,11 +67,17 @@ public class Funciones {
         return matrizNueva;
     }
     
-    // Metodo para generar la siguiente matriz segun las reglas de la vida
-	static int [][] estadoSiguiente(int tablero[][]) 
-                
-                
-	{   int M = tablero.length;
+    /**
+     *Metodo para generar la siguiente matriz segun las reglas de la vida
+     * 
+     * @param  tablero  Representa la matriz anterior
+     * 
+     * @return  La matriz original despues de que se le apliquen las leyes de la vida
+     */
+
+    static int [][] estadoSiguiente(int tablero[][]) {
+        
+        int M = tablero.length;
             int N = tablero[0].length;
             
             //creacion de la nueva matriz coloca por defecto 0 en todas las celdas
@@ -52,9 +92,6 @@ public class Funciones {
 				// buscando la cantidad de celulas vecinas vivas 
                                 // dado que las celulas vivas valen 1, las contamos
 				int celulasVecinasVivas = 0; 
-                                // i = -1  (j (-1.0..1)
-                                // i = 0 (j (-1.0..1)
-                                // i = 1  (j (-1.0..1)
 				for (int i = -1; i <= 1; i++) 
 					for (int j = -1; j <= 1; j++) 
                                             //contamos las celulas vivas dado que valen 1 
@@ -91,6 +128,12 @@ public class Funciones {
                 return futuro;
 		
 	} 
+
+    /**
+     *metodo que imprime el contenido de una matriz
+     * 
+     * @param  tablero  Representa la matriz que se va a mostrar en consola.
+     */
 
     //metodo que imprime el contenido de una matriz
     //transformo 0 y 1 en (.) y (V)
