@@ -1,11 +1,33 @@
 
+/**
+ * Copyright [2021] [Sebastian Gines]
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing,
+software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+See the License for the specific language governing permissions
+and
+limitations under the License.
+ */
 
-import java.io.FileInputStream;
+ 
+
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
+
+/**
+ * Clase principal para comenzar el juego de la vida.
+ * 
+ * @author Sebastian Gines
+ * @version segunda práctica
+ */
 
 public class Main 
 { 
@@ -50,8 +72,14 @@ public class Main
                 guardarMatriz(siguienteMatriz);
                 
 	} 
-
-    //metodo que guarda la matriz en un fichero
+    
+    /**
+     *metodo que guarda la matriz en un fichero
+     * 
+     * @param  tablero   Tablero que seria siendo la matriz final
+     */
+    
+     
     private static void guardarMatriz(int[][] tablero) {
         
          try {
@@ -70,23 +98,7 @@ public class Main
         }
     }
     
-    //Metodo que lee la matriz desde un fichero    
-      public static void cargarMatriz() {
-        try {
-            //Lectura de los objetos de tipo persona
-            FileInputStream fisMatriz = new FileInputStream("datosMatriz.dat");
-            ObjectInputStream oisMatriz = new ObjectInputStream(fisMatriz);
-            tablero = (int[][]) oisMatriz.readObject();
-            fisMatriz.close();
-            System.out.println("SE HA LEIDO LA MATRIZ DEL FICHERO");
-        } catch (IOException ioe) {
-            System.out.println("Error de IO: " + ioe.getMessage());
-        } catch (ClassNotFoundException cnfe) {
-            System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
+    
 
 	
 } 
